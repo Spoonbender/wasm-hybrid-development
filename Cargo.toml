@@ -1,0 +1,29 @@
+[package]
+name = "demo-app"
+version = "0.1.0"
+authors = ["Maayan Hanin <maayan.asa.hanin@gmail.com>"]
+edition = "2018"
+
+[lib]
+crate-type = ["cdylib", "rlib"]
+
+[dependencies]
+wasm-bindgen = { version = "0.2" }
+js-sys = "0.3.40"
+wasm-bindgen-futures = "0.4.17"
+reqwest = { version = "0.10", features = ["json"] }
+primes = "0.3"
+
+[dependencies.web-sys]
+version = "0.3.4"
+features = [
+  'Document',
+  'Element',
+  'HtmlElement',
+  'HtmlCollection',
+  'Node',
+  'Window',
+]
+
+[profile.release]
+opt-level = "s"
